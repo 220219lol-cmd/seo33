@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>USDT 到账延迟排查：确认数阈值与链上状态排查（2025）</title>
+  <meta name="description" content="USDT 到账延迟排查：通过 TXID 查看链上状态、确认数，结合平台入账确认阈值，一次搞定问题。提供完整的排查流程、话术模板与 FAQPage JSON-LD。">
+  <meta name="keywords" content="USDT 到账延迟,USDT 没到账,TXID,确认数,链上状态,USDT 工单,USDT 排查流程" />
+  <link rel="canonical" href="https://220219lol-cmd.github.io/seo33/" />
+
+  <style>
+    :root{
+      --bg:#f0f7ff;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:#1e2a3a;
+      --muted:rgba(234,255,242,.72);
+      --green:#16a34a;
+      --gold:#fbbf24;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.9}
+    h1,h2,h3{color:var(--green);line-height:1.4}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 16px 70px}
+    .hero{border:1px solid var(--line);border-radius:24px;padding:22px;background:rgba(0,0,0,.08);box-shadow:var(--shadow)}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:rgba(22,163,74,.14);border:1px solid rgba(22,163,74,.35);color:#e9f5e2;font-weight:900;font-size:12px}
+    h1{margin:12px 0 6px;font-size:28px}
+    .sub{margin:0;color:var(--muted);max-width:980px}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:900;font-size:14px;border:1px solid rgba(22,163,74,.35);background:linear-gradient(90deg,rgba(22,163,74,.18),rgba(22,163,74,.06));color:#031f15}
+    .btn.primary{border-color:transparent;background:linear-gradient(90deg,#16a34a,#10b981);color:#032012}
+    .kpis{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px}
+    .kpi{grid-column:span 4;border:1px solid var(--line);border-radius:var(--r);background:rgba(255,255,255,.06);padding:14px}
+    .kpi b{display:block;font-size:14px}
+    .kpi p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .section{margin-top:16px;border:1px solid var(--line);border-radius:26px;padding:18px;background:rgba(255,255,255,.07)}
+    .section h2{margin:0 0 10px;font-size:20px;color:#d9ffe7}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .card{grid-column:span 6;border:1px solid var(--line);border-radius:var(--r);padding:14px;background:rgba(255,255,255,.06)}
+    .table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;margin-top:12px}
+    .table th,.table td{padding:12px 12px;text-align:left}
+    .table th{background:rgba(22,163,74,.10);font-size:13px}
+    .table td{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .code{margin-top:12px;border:1px solid var(--line);border-radius:18px;padding:14px;background:#0b1220;color:#e5e7eb;font-family:monospace;font-size:13px;overflow:auto}
+    .callout{margin-top:12px;padding:12px 14px;border-radius:18px;border:1px dashed rgba(245,158,11,.55);background:rgba(245,158,11,.10);color:#7c2d12;font-weight:900}
+    details{border:1px solid var(--line);border-radius:18px;padding:12px 14px;background:rgba(0,0,0,.14);margin-top:10px}
+    summary{cursor:pointer;font-weight:900}
+    .fine{margin-top:14px;color:rgba(234,255,242,.60);font-size:12px}
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">USDT 到账排查中心</span>
+      <h1>USDT 到账延迟排查：确认数阈值与链上状态排查（2025）</h1>
+      <p class="sub">先检查链上状态，再看确认数与平台入账，提供完整排查流程与工单话术，帮助你更快找到问题。</p>
+      <div class="btns">
+        <a class="btn primary" href="https://usdtonlinecasino.com/usdt-payment-guide/" target="_blank" rel="noopener">USDT 支付教学</a>
+        <a class="btn" href="https://usdtonlinecasino.com/usdt-faq/" target="_blank" rel="noopener">USDT FAQ</a>
+        <a class="btn" href="https://usdtonlinecasino.com/" target="_blank" rel="noopener">资源中心</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>状态判断：你该做什么</h2>
+      <table class="table">
+        <thead><tr><th>状态</th><th>含义</th><th>下一步</th></tr></thead>
+        <tbody>
+          <tr><td><b>pending</b></td><td>交易中，可能网络拥堵</td><td>等待确认数增长，截图留证，避免重复转账</td></tr>
+          <tr><td><b>success</b></td><td>链上已完成</td><td>检查确认数，若达标仍未入账，联系平台索要 ETA</td></tr>
+          <tr><td><b>failed</b></td><td>链上失败</td><td>先确认失败原因，平台不应处理失败的交易</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">✅ 链上成功后，仍需根据平台确认数要求和风控进行处理。</div>
+    </section>
+
+    <section class="section">
+      <h2>标准排查流程（按顺序进行）</h2>
+      <div class="steps">
+        <div class="row">
+          <div class="num">1</div>
+          <div>
+            <b>确认网络一致性</b>
+            <p>确认使用正确的网络（TRC20/ERC20/BEP20），避免因网络不一致导致的错误。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="num">2</div>
+          <div>
+            <b>核对地址前6后6</b>
+            <p>确保收款地址没有错误，避免因地址填写错误导致的问题。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="num">3</div>
+          <div>
+            <b>查询链上状态和确认数</b>
+            <p>使用 TXID 查询链上状态并截图保存，确认状态和确认数。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="num">4</div>
+          <div>
+            <b>确认平台入账阈值</b>
+            <p>确认平台的入账确认数阈值，确保已达到平台的要求。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="num">5</div>
+          <div>
+            <b>若达标仍未入账：走工单流程</b>
+            <p>提交工单并索要工单号与 ETA。</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:14px">工单话术（复制粘贴）</h2>
+      <div class="code">
+【问题类型】USDT 到账延迟排查<br>
+【网络】TRC20 / ERC20 / BEP20：_____<br>
+【金额】____ USDT<br>
+【收款地址】_____（前6：_____ / 后6：_____）<br>
+【转账时间】_____<br>
+【TXID】_____（链上截图已附：状态 + 确认数）<br><br>
+请确认：平台入账所需确认数阈值是多少？若确认数已达标仍未入账，请提供：工单号、处理进度与 ETA（预计完成时间）。
+      </div>
+
+      <p class="fine">免责声明：本页为科普/教育用途，请遵守所在地法律与规则，自行评估风险。</p>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <details><summary>Q1：链上 success 了为什么还不到账？</summary><p>平台入账往往需要确认数阈值与内部队列/风控流程。</p></details>
+      <details><summary>Q2：确认数达标仍未入账怎么办？</summary><p>提交工单并索要工单号与 ETA，TXID+截图一次性给齐。</p></details>
+      <details><summary>Q3：pending 很久要不要重发？</summary><p>不建议叠加多笔。先观察确认数变化，必要时再评估处理。</p></details>
+      <details><summary>Q4：为什么要核对地址前6后6？</summary><p>防手误/剪贴板替换，是最低成本安全动作。</p></details>
+    </section>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"链上 success 了为什么还不到账？","acceptedAnswer":{"@type":"Answer","text":"平台入账往往需要确认数阈值与内部队列/风控流程。"}},
+      {"@type":"Question","name":"确认数达标仍未入账怎么办？","acceptedAnswer":{"@type":"Answer","text":"提交工单并索要工单号与 ETA，TXID+截图一次性给齐。"}},
+      {"@type":"Question","name":"pending 很久要不要重发？","acceptedAnswer":{"@type":"Answer","text":"不建议叠加多笔。先观察确认数变化，必要时再评估处理。"}},
+      {"@type":"Question","name":"为什么要核对地址前6后6？","acceptedAnswer":{"@type":"Answer","text":"防手误/剪贴板替换，是最低成本安全动作。"}}
+    ]
+  }
+  </script>
+</body>
+</html>
